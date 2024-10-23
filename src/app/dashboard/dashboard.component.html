@@ -1,0 +1,47 @@
+
+
+<div fxLayout="row" fxLayoutAlign="space-around center" >
+<mat-card style="background-color: rosybrown;">
+      <mat-card-title>members</mat-card-title>
+      <mat-card-subtitle>{{NB_members}}</mat-card-subtitle>
+</mat-card>
+
+
+<mat-card style="background-color: aqua;">
+    <mat-card-title>tools</mat-card-title>
+    <mat-card-subtitle>{{NB_tools}}</mat-card-subtitle>
+</mat-card>
+
+
+<mat-card style="background-color: bisque;">
+    <mat-card-title>events</mat-card-title>
+    <mat-card-subtitle>{{NB_events}}</mat-card-subtitle>
+</mat-card>
+
+<mat-card style="background-color: burlywood;">
+    <mat-card-title>articles</mat-card-title>
+    <mat-card-subtitle>{{NB_articles}}</mat-card-subtitle>
+</mat-card>
+
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-around center">
+    <div class="chart-wrapper" fxFlex="43">
+      <canvas baseChart
+              [type]="'line'"
+              [datasets]="chartData"
+              [labels]="chartLabels"
+              [options]="chartOptions">
+      </canvas>
+    </div>
+  
+    <div class="chart-wrapper" fxFlex="43">
+      <canvas baseChart
+              [type]="'pie'"
+              [datasets]="chartData"
+              [labels]="chartLabels"
+              [options]="chartOptions">
+      </canvas>
+    </div>
+  </div>
+  

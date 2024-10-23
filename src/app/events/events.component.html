@@ -1,0 +1,51 @@
+
+<div fxLayout="row" fxLayoutAlign="end center" >
+    <button (click)="open()" > create new </button>
+    </div>
+    
+    <table mat-table [dataSource]="data" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> id </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+      
+        
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> title</th>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+      
+        
+        <ng-container matColumnDef="dateDebut">
+          <th mat-header-cell *matHeaderCellDef> dateDebut </th>
+          <td mat-cell *matCellDef="let element"> {{element.dateDebut}} </td>
+        </ng-container>
+      
+       
+        <ng-container matColumnDef="dateFin">
+          <th mat-header-cell *matHeaderCellDef> dateFin </th>
+          <td mat-cell *matCellDef="let element"> {{element.dateFin}} </td>
+        </ng-container>
+      
+    
+        <ng-container matColumnDef="Lieu">
+            <th mat-header-cell *matHeaderCellDef> Lieu </th>
+            <td mat-cell *matCellDef="let element"> {{element.lieu}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef> Edit </th>
+            <td mat-cell *matCellDef="let element">
+              <button (click)="openid(element.id)"> 
+                <mat-icon aria-hidden="false" aria-label="Edit icon">edit</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+    
+          
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+      

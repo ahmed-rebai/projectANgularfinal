@@ -1,0 +1,52 @@
+{
+  "members": [
+    {
+      "id": "a508",
+      "cin": "11138762",
+      "name": "amal",
+      "cv": "12122",
+      "type": "student",
+      "createdDate": "2024-09-30T15:05:05.872Z"
+    },
+    {
+      "id": "ba91",
+      "cin": "14141414",
+      "name": "amal",
+      "cv": "ay",
+      "type": "teacher",
+      "createdDate": "2024-10-16T09:49:23.761Z"
+    }
+  ],
+  "evt": [
+    {
+      "id": "101",
+      "title": "party",
+      "dateDebut": "samedi",
+      "dateFin": "dimanche",
+      "lieu": "sfax"
+    },
+    {
+      "id": "3c59"
+    },
+    {
+      "title": "part2",
+      "dateDebut": "2024-10-14T23:00:00.000Z",
+      "dateFin": "2024-10-16T23:00:00.000Z",
+      "lieu": "tunis",
+      "id": "8a80"
+    },
+    {
+      "id": "f8f1"
+    },
+    {
+      "id": "71bf",
+      "title": "jerba party",
+      "dateDebut": "2024-10-14T23:00:00.000Z",
+      "dateFin": "2024-10-18T23:00:00.000Z",
+      "lieu": "djerba"
+    },
+    {
+      "id": "607e"
+    }
+  ]
+}

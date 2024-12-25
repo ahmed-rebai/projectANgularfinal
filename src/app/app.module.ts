@@ -32,6 +32,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { ConfirmComponent } from './confirm/confirm.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ToolsFormComponent } from './tools-form/tools-form.component';
+import { ArticlesFormComponent } from './articles-form/articles-form.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { ToolsFormComponent } from './tools-form/tools-form.component';
     LoginComponent,
     ModalComponent,
     ConfirmComponent,
-    ToolsFormComponent
+    ToolsFormComponent,
+    ArticlesFormComponent
 
   ],
   imports: [

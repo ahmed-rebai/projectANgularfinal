@@ -20,6 +20,10 @@ export class EvenementService {
   addEvent(evt :evt): Observable <void>{
  return this.http.post<void>('http://localhost:3000/evt',evt)
   }
+  delete(id:string): Observable<void>
+  {
+    return this.http.delete<void>(`http://localhost:3000/evt/${id}`)
+  }
 
   getEventID(id:string): Observable<evt >
 

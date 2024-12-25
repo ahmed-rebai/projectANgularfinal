@@ -34,17 +34,11 @@
       "lieu": "sfax"
     },
     {
-      "id": "3c59"
-    },
-    {
       "title": "part2",
       "dateDebut": "2024-10-14T23:00:00.000Z",
       "dateFin": "2024-10-16T23:00:00.000Z",
       "lieu": "tunis",
       "id": "8a80"
-    },
-    {
-      "id": "f8f1"
     },
     {
       "id": "71bf",
@@ -82,6 +76,45 @@
       "project": "spring",
       "link": "fb.com",
       "createdDate": "2024-12-24T16:36:03.603Z"
+    },
+    {
+      "id": "0e31",
+      "link": "youtub2e.com",
+      "createdDate": "2024-12-25T11:26:04.774Z"
+    }
+  ],
+  "articles": [
+    {
+      "type": "test",
+      "titre": "testing",
+      "link": "github.com",
+      "Sourcepdf": "thissource",
+      "createdDate": "2024-12-25T10:32:56.707Z",
+      "id": "140"
+    },
+    {
+      "type": "test",
+      "titre": "fim",
+      "link": "hiw",
+      "Sourcepdf": "liengit",
+      "createdDate": "2024-12-25T10:56:39.094Z",
+      "id": "8a75"
+    },
+    {
+      "type": "testing",
+      "titre": "montest",
+      "link": "haw",
+      "Sourcepdf": "hawellien",
+      "createdDate": "2024-12-25T10:56:23.882Z",
+      "id": "fbff"
+    },
+    {
+      "id": "6d52",
+      "type": "spring",
+      "titre": "boot",
+      "link": "liengoogle",
+      "Sourcepdf": "el site",
+      "createdDate": "2024-12-25T10:57:03.672Z"
     }
   ]
 }

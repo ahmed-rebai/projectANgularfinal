@@ -11,7 +11,7 @@ import { ConfirmComponent } from '../confirm/confirm.component';
 })
 
 export class ToolsComponent implements OnInit {
-  displayedColumns: string[] = ['id','title', 'project', 'link','createdDate','icon','edit'];
+  displayedColumns: string[] = ['id','link','createdDate','icon','edit'];
   constructor(private ms : ToolService,private dialog:MatDialog){}
   dataSource : tools[]=[];
   ngOnInit(): void {

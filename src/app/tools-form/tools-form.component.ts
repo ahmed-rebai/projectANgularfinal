@@ -22,8 +22,6 @@ export class ToolsFormComponent implements OnInit {
       this.Ms.gettools(idCourant).subscribe((response)=>{
         this.form = new FormGroup({
           id: new FormControl(null, [Validators.required]),
-          title: new FormControl(response.title, [Validators.required]),
-          project: new FormControl(response.project, [Validators.required]),
           link: new FormControl(response.link, [Validators.required])
         });
     
@@ -41,8 +39,6 @@ export class ToolsFormComponent implements OnInit {
   }
   initForm():void {
     this.form = new FormGroup({
-      title: new FormControl(null, [Validators.required]),
-      project: new FormControl(null, [Validators.required]),
       link: new FormControl(null, [Validators.required])
     });
 

@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="sub()">
+    <mat-form-field appearance="fill">
+      <mat-label></mat-label>
+      <input matInput placeholder="" formControlName="fielden">
+    </mat-form-field> 
+    <mat-form-field appearance="fill">
+        <mat-label>title</mat-label>
+        <input matInput placeholder="title" formControlName="title">
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>project</mat-label>
+        <input matInput placeholder="project Name" formControlName="project">
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>link</mat-label>
+        <input matInput placeholder="project link" formControlName="link">
+      </mat-form-field>
+    
+      <button type="submit" mat-raised-button color="primary">Submit</button>
+    </form>
+    
+  

@@ -1,0 +1,8 @@
+form {
+    display: flex;
+    flex-direction: column; /* Align fields vertically */
+    gap: 16px; /* Add spacing between fields */
+    max-width: 400px; /* Limit the form's width */
+    margin: 0 auto; /* Center the form horizontally */
+  }
+  

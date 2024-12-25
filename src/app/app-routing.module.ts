@@ -8,6 +8,7 @@ import { ToolsComponent } from './tools/tools.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { LoginComponent } from './login/login.component';
 import { ModalComponent } from './modal/modal.component';
+import { ToolsFormComponent } from './tools-form/tools-form.component';
 
 const routes: Routes = [
 
@@ -41,6 +42,11 @@ const routes: Routes = [
     pathMatch:"full",
     component:MemberFormComponent
   },
+  {
+    path : 'create_tool',
+    pathMatch : 'full',
+    component:ToolsFormComponent
+  },
 
   {
     path:'',
@@ -52,6 +58,11 @@ const routes: Routes = [
   path:':id/edit',
   pathMatch:"full",
   component:MemberFormComponent
+},
+{
+  path : ':id/edit_tool',
+  pathMatch : 'full',
+  component:ToolsFormComponent
 },
 
   {

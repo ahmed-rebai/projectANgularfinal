@@ -15,6 +15,14 @@
       "cv": "ay",
       "type": "teacher",
       "createdDate": "2024-10-16T09:49:23.761Z"
+    },
+    {
+      "id": "7588",
+      "cin": "1971",
+      "name": "Ahmed ",
+      "cv": "cve",
+      "type": "etudiant",
+      "createdDate": "2024-12-24T15:58:14.128Z"
     }
   ],
   "evt": [
@@ -46,7 +54,34 @@
       "lieu": "djerba"
     },
     {
+      "title": "fin d d'année",
+      "dateDebut": "2024-12-29T23:00:00.000Z",
+      "dateFin": "2024-12-30T23:00:00.000Z",
+      "lieu": "sfax",
       "id": "607e"
+    }
+  ],
+  "tools": [
+    {
+      "id": "14",
+      "title": "test",
+      "project": "ML",
+      "link": "github.com",
+      "createdDate": "2024-11-16T14:05:33.499Z"
+    },
+    {
+      "id": "16",
+      "title": "DEV",
+      "project": "CI/CD",
+      "link": "link_here",
+      "createdDate": "aaaa"
+    },
+    {
+      "id": "01b3",
+      "title": "pfa",
+      "project": "spring",
+      "link": "fb.com",
+      "createdDate": "2024-12-24T16:36:03.603Z"
     }
   ]
 }

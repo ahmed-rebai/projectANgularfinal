@@ -23,6 +23,14 @@
       "cv": "cve",
       "type": "etudiant",
       "createdDate": "2024-12-24T15:58:14.128Z"
+    },
+    {
+      "id": "0c54",
+      "cin": "123",
+      "name": "Ahmed Rebai",
+      "cv": "Ahmed-REBAI-Resume.pdf",
+      "type": "etudiant",
+      "createdDate": "2024-12-25T16:17:02.975Z"
     }
   ],
   "evt": [

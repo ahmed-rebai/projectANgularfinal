@@ -20,9 +20,13 @@
 
 
   <p>
-    <mat-form-field appearance="fill">
-      <input matInput placeholder="cv"   formControlName="cv">
-    </mat-form-field>
+    <!-- File Selector -->
+    <input
+      type="file"
+      (change)="onFileSelected($event)"
+      placeholder="Select CV"
+    />
+    <small>{{ selectedFileName }}</small>
   </p>
 
 

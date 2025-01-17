@@ -7,13 +7,14 @@ import { EventsComponent } from './events/events.component';
 import { ToolsComponent } from './tools/tools.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { LoginComponent } from './login/login.component';
-import { ModalComponent } from './modal/modal.component';
 import { ToolsFormComponent } from './tools-form/tools-form.component';
 import { ArticlesFormComponent } from './articles-form/articles-form.component';
+import { CreateEtudiantComponent } from './create-etudiant/create-etudiant.component';
+import { FormEtdComponent } from './form-etd/form-etd.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-
+  { path: 'create-etudiant', component: FormEtdComponent},
   {
     path:'dashboard',
     pathMatch:"full",
@@ -44,6 +45,9 @@ const routes: Routes = [
     pathMatch:"full",
     component:MemberFormComponent
   },
+  { path: 'etudiants/:id/edit', component: FormEtdComponent },
+  { path: 'enseignants/:id/edit', component: MemberFormComponent },
+ 
   {
     path : 'create_tool',
     pathMatch : 'full',
@@ -66,11 +70,7 @@ const routes: Routes = [
     component:HomeComponent
   },
 
-{
-  path:':id/edit',
-  pathMatch:"full",
-  component:MemberFormComponent
-},
+  
 {
   path : ':id/edit_tool',
   pathMatch : 'full',

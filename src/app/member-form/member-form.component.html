@@ -1,67 +1,47 @@
-<form [formGroup]="form" (ngSubmit)="sub()">
+<form [formGroup]="form" (ngSubmit)="sub()" fxLayout="row wrap" fxLayoutGap="16px" class="form-container">
+  <mat-form-field appearance="fill" class="field" [ngClass]="{'cin-edit': currentId !== null}">
+    <input matInput placeholder="CIN" formControlName="cin" [readonly]="currentId !== null">
+  </mat-form-field>
 
-  <p>
-    <mat-form-field appearance="fill">
-      <input matInput placeholder="CIN" formControlName="cin">
-    </mat-form-field>
-  </p>
+  <mat-form-field appearance="fill" class="field">
+    <input matInput placeholder="Nom" formControlName="nom">
+  </mat-form-field>
 
-  <p>
-    <mat-form-field appearance="fill">
-      <input matInput placeholder="Name" formControlName="name">
-    </mat-form-field>
-  </p>
+  <mat-form-field appearance="fill" class="field">
+    <input matInput placeholder="Prénom" formControlName="prenom">
+  </mat-form-field>
 
-  <p>
-    <mat-form-field appearance="fill">
-      <input matInput placeholder="Prenom" formControlName="prenom">
-    </mat-form-field>
-  </p>
+  <mat-form-field appearance="fill" class="field">
+    <input matInput [matDatepicker]="picker" placeholder="Date de naissance" formControlName="dateNaissance">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
 
-  <p>
-    <mat-form-field appearance="fill">
-      <input matInput type="date" placeholder="Date" formControlName="date">
-    </mat-form-field>
-  </p>
-
-  <p>
-    <!-- Photo Selector -->
+  <div class="field">
+    <!-- File Selector -->
+    <label for="file-upload">CV :</label>
     <input
       type="file"
-      (change)="onFileSelected($event, 'photo')"
-      placeholder="Select Photo"
-    />
-    <small>{{ selectedPhotoFileName }}</small>
-  </p>
-
-  <p>
-    <!-- CV Selector -->
-    <input
-      type="file"
-      (change)="onFileSelected($event, 'cv')"
+      id="file-upload"
+      (change)="onFileSelected($event)"
       placeholder="Select CV"
     />
     <small>{{ selectedFileName }}</small>
-  </p>
+  </div>
 
-  <p>
-    <mat-form-field appearance="fill">
-      <input matInput placeholder="Email" formControlName="email" type="email">
-    </mat-form-field>
-  </p>
+  <mat-form-field appearance="fill" class="field">
+    <input matInput placeholder="Email" formControlName="email">
+  </mat-form-field>
 
-  <p>
-    <mat-form-field appearance="fill">
-      <input matInput placeholder="Password" formControlName="password" type="password">
-    </mat-form-field>
-  </p>
+  <mat-form-field appearance="fill" class="field">
+    <input matInput placeholder="Grade" formControlName="grade">
+  </mat-form-field>
 
-  <p>
-    <mat-form-field appearance="fill">
-      <input matInput placeholder="Type" formControlName="type">
-    </mat-form-field>
-  </p>
+  <mat-form-field appearance="fill" class="field">
+    <input matInput placeholder="Établissement" formControlName="etablissement">
+  </mat-form-field>
 
-  <button type="submit" mat-raised-button color="primary">Submit</button>
-
+  <div fxFlex="100" fxLayoutAlign="center">
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </div>
 </form>

@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { EnseignantChercheur } from 'src/model/EnseignantChercheur';
+import { Etudiant } from 'src/model/Etudiant';
 import { member } from 'src/model/member';
 // decorateur permet d'injecter ce service dans autres services ou autres composants
 // providedIn: 'root'  c'est a dire le service est injecté sur toute la root 
@@ -8,31 +10,50 @@ import { member } from 'src/model/member';
   providedIn: 'root'
 })
 export class MemberService {
-// n7touu des fonctions qui representent des cruds sur le member
-//il faut ajouter les biblitotheques eli ygeneriwh http request
-// service tkharej requette http  type de retour houwa observable 5atr angular lance un thread de type observable 
 
   constructor(private http:HttpClient) { }
   getAllMembers(): Observable<member[] >
 
   {
-    // envoie la requette htpp en mode get
-    return this.http.get<member[]>('http://localhost:3000/members')
+    
+    return this.http.get<member[]>('http://localhost:9000/membres')
   }
 
-  // type de retour dima observable khatr requette 
-  add(x:member): Observable<void>
-  {
-  return this.http.post<void>('http://localhost:3000/members',x)
 
+  getAllStudents():Observable<Etudiant[]>{
+    return this.http.get<Etudiant[]>('http://localhost:9000/membres/etudiants')
   }
+
+  getAllTeachers():Observable<EnseignantChercheur[]>{
+    return this.http.get<EnseignantChercheur[]>('http://localhost:9000/membres/teachers')
+  }
+
+  addEtudiant(etudiant: Etudiant): Observable<Etudiant> {
+    return this.http.post<Etudiant>('http://localhost:9000/membres/etudiant', etudiant);
+  }
+
+  // Ajouter un enseignant-chercheur
+  addEnseignant(enseignant: EnseignantChercheur): Observable<EnseignantChercheur> {
+    return this.http.post<EnseignantChercheur>('http://localhost:9000/membres/enseignant', enseignant);
+  }
+
+
+  updateEnseignant(id:string,x:EnseignantChercheur):Observable<void>{
+    return this.http.put<void>(`http://localhost:9000/membres/enseignant/${id}`,x)
+  }
+
+
+  updateEtudiant(id:string,x:Etudiant):Observable<void>{
+    return this.http.put<void>(`http://localhost:9000/membres/etudiant/${id}`,x)
+  }
+  
   delete(id:string): Observable<void>
   {
-    return this.http.delete<void>(`http://localhost:3000/members/${id}`)
+    return this.http.delete<void>(`http://localhost:9000/membres/${id}`)
   }
   getMemberById(id:string):Observable<member>
   {
-    return this.http.get<member>(`http://localhost:3000/members/${id}`)
+    return this.http.get<member>(`http://localhost:9000/membres/${id}`)
   }
   updateMember(x:member,id:string):Observable<void>{
     return this.http.put<void>(`http://localhost:3000/members/${id}`,x)

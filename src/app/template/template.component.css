@@ -1,14 +1,39 @@
-/* Styling for the carousel */
-.carousel-item {
-    height: 100vh;
-    background-color: #3f51b5; /* New background color */
-    background-size: cover;
-    background-position: center;
-    position: relative;
+/* Personnalisation du header */
+mat-toolbar {
+    background-color: #2a6f97 !important; /* Remplacez cette couleur par celle que vous voulez */
+    color: white !important;
   }
   
-  /* Optional: Adjust the color of text inside carousel overlay for contrast */
-  .carousel-overlay {
-    background-color: rgba(0, 0, 0, 0.5);
+  /* Personnalisation du sidenav */
+  mat-sidenav {
+    background-color: #2a6f97 !important; /* Remplacez cette couleur par celle que vous voulez */
+    color: white !important;
+  }
+  
+  /* Personnalisation des liens dans le sidenav */
+  mat-nav-list a {
+    color: white !important;
+    text-decoration: none;
+  }
+  
+  mat-nav-list a:hover {
+    background-color: #edede9; /* Couleur au survol */
+    border-radius: 4px;
+  }
+
+  
+
+  
+  .toolbar-button {
+    background-color: transparent ;
+    color: white !important;
+    border: none;
+    border-radius: 50%; /* Bouton circulaire */
+    padding: 10px;
+    transition: background-color 0.3s ease-in-out; /* Animation de transition */
+  }
+  
+  .toolbar-button:hover {
+    background-color: #edede9 !important; /* Couleur au survol */
   }
   

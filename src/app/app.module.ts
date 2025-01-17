@@ -33,6 +33,9 @@ import { ConfirmComponent } from './confirm/confirm.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ToolsFormComponent } from './tools-form/tools-form.component';
 import { ArticlesFormComponent } from './articles-form/articles-form.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { FormEtdComponent } from './form-etd/form-etd.component';
 import { HomeComponent } from './home/home.component';
 
 
@@ -51,6 +54,7 @@ import { HomeComponent } from './home/home.component';
     ConfirmComponent,
     ToolsFormComponent,
     ArticlesFormComponent,
+    FormEtdComponent,
     HomeComponent
 
   ],
@@ -75,7 +79,9 @@ import { HomeComponent } from './home/home.component';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    NgChartsModule
+    NgChartsModule,
+    MatButtonModule,
+     MatSelectModule
 
   ],
   providers: [],

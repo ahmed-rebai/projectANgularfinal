@@ -1,0 +1,38 @@
+.form-container {
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.field {
+  width: calc(50% - 16px); /* Deux champs côte à côte */
+  margin-bottom: 16px;
+}
+
+#file-upload {
+  display: block;
+  margin-top: 4px;
+}
+
+.file-upload {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.custom-file-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.file-name {
+  font-size: 14px;
+  color: #555;
+  font-style: italic;
+  margin-left: 8px;
+}
+
+input[type="file"] {
+  display: none;
+}
+

@@ -10,7 +10,8 @@ import { MemberService } from 'src/service/member.service';
 })
 export class MemberFormComponent implements OnInit {
   form!: FormGroup;
-  selectedFileName: string = ''; // For displaying the selected file name
+  selectedFileName: string = '';
+  currentId: string | null = null; // ID courant pour déterminer si create ou edit
 
   constructor(
     private ms: MemberService,
@@ -19,56 +20,58 @@ export class MemberFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const idcourant = this.activatedRoute.snapshot.params['id'];
-    if (!!idcourant) {
-      this.ms.getMemberById(idcourant).subscribe((member) => {
-        this.form = new FormGroup({
-          cin: new FormControl(member.cin, [Validators.required]),
-          name: new FormControl(member.name, [Validators.required]),
-          cv: new FormControl(member.cv, [Validators.required]),
-          type: new FormControl(member.type, [Validators.required])
-        });
+   
+    this.currentId = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log(this.currentId);
+    this.initForm();
+
+    if (this.currentId) {
+     
+      this.ms.getMemberById(this.currentId).subscribe((member) => {
+        console.log(member);
+        this.form.patchValue(member); 
       });
-    } else {
-      this.initForm();
     }
   }
 
   initForm(): void {
     this.form = new FormGroup({
       cin: new FormControl(null, [Validators.required]),
-      name: new FormControl(null, [Validators.required]),
-      cv: new FormControl(null, [Validators.required]),
-      type: new FormControl(null, [Validators.required])
+      nom: new FormControl(null, [Validators.required]),
+      prenom: new FormControl(null, [Validators.required]),
+      dateNaissance: new FormControl(null, [Validators.required]),
+      cv: new FormControl(null),
+      email: new FormControl(null, [Validators.required]),
+      grade: new FormControl(null, [Validators.required]),
+      etablissement: new FormControl(null, [Validators.required]),
     });
   }
 
-  // File selection handler
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
 
     if (input.files && input.files.length > 0) {
       const file = input.files[0];
-      this.selectedFileName = file.name; // Display the file name
+      this.selectedFileName = file.name; // Afficher le nom du fichier
       this.form.patchValue({
-        cv: file.name // Save the file name in the 'cv' field
+        cv: file.name // Enregistrer le nom du fichier dans le champ 'cv'
       });
     }
   }
 
   sub(): void {
-    const idcourant = this.activatedRoute.snapshot.params['id'];
     const formData = {
       ...this.form.value,
-      createdDate: new Date().toISOString()
     };
 
-    if (!!idcourant) {
-      this.ms.updateMember(formData, idcourant).subscribe(() => {
+    if (this.currentId) {
+      // Appeler l'API de mise à jour si en mode édition
+      this.ms.updateEnseignant(this.currentId, formData).subscribe(() => {
         this.router.navigate(['/member']);
       });
     } else {
-      this.ms.add(formData).subscribe(() => {
+      
+      this.ms.addEnseignant(formData).subscribe(() => {
         this.router.navigate(['/member']);
       });
     }

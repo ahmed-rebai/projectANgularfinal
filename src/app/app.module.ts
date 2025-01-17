@@ -33,8 +33,9 @@ import { ConfirmComponent } from './confirm/confirm.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ToolsFormComponent } from './tools-form/tools-form.component';
 import { ArticlesFormComponent } from './articles-form/articles-form.component';
-
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { FormEtdComponent } from './form-etd/form-etd.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,8 @@ import { ArticlesFormComponent } from './articles-form/articles-form.component';
     ModalComponent,
     ConfirmComponent,
     ToolsFormComponent,
-    ArticlesFormComponent
+    ArticlesFormComponent,
+    FormEtdComponent
 
   ],
   imports: [
@@ -73,7 +75,9 @@ import { ArticlesFormComponent } from './articles-form/articles-form.component';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    NgChartsModule
+    NgChartsModule,
+    MatButtonModule,
+     MatSelectModule
 
   ],
   providers: [],

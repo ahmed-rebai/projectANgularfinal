@@ -35,13 +35,6 @@
   ],
   "evt": [
     {
-      "id": "101",
-      "title": "party",
-      "dateDebut": "samedi",
-      "dateFin": "dimanche",
-      "lieu": "sfax"
-    },
-    {
       "title": "part2",
       "dateDebut": "2024-10-14T23:00:00.000Z",
       "dateFin": "2024-10-16T23:00:00.000Z",

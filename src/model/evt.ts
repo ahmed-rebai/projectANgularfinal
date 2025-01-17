@@ -1,8 +1,6 @@
-export interface evt {
-    id:string,
-    title:string,
-    dateDebut:string,
-    dateFin:string,
-    lieu:string
-    
-    }
+export interface Evt{
+    id: string,
+    titre: string,
+    date: string,
+    lieu: string
+}

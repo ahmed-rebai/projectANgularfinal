@@ -1,94 +1,83 @@
 import { Component, OnInit } from '@angular/core';
-import { evt } from 'src/model/evt';
-import { EvenementService } from 'src/service/evenement.service';
+
 import { ModalComponent } from '../modal/modal.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogRef } from '@angular/cdk/dialog';
-import { ConfirmComponent } from '../confirm/confirm.component';
 
+import { EvenementService } from 'src/service/evenement.service';
+import { Evt } from 'src/model/evt';
 
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
   styleUrls: ['./events.component.css']
 })
-export class EventsComponent implements OnInit {
-  
-data : evt[]=[]
-constructor( private es: EvenementService, private Dialog:MatDialog){}
+export class EventsComponent implements OnInit{
 
-displayedColumns: string[] = ['id', 'title', 'dateDebut', 'dateFin','Lieu','delete','edit'];
+  displayedColumns: string[] = ['id', 'titre', 'date', 'lieu', 'actions'];
+  eventSource : Evt[]=[]
+
+  constructor(private ES : EvenementService, private dialog:MatDialog){}
+
   ngOnInit(): void {
-    this.es.getAllevents().subscribe((response)=>{
-
-      this.data=response
-    }) 
-
-
+    this.ES.getAllEvent().subscribe((response)=>{
+      console.log("Received events from backend:", response);
+      this.eventSource=response
+    })
   }
-  delete(id:string):void{
-    console.log(id);
+
+  open(): void{
+    const dialogRef = this.dialog.open(ModalComponent, {  
+    });
+    // récuperer les donnée du modal
+    dialogRef.afterClosed().subscribe((data)=>{
+      if (data==null){
+        return;
+      }
+      this.ES.addEvent(data).subscribe(()=>{
+        this.ES.getAllEvent().subscribe((response)=>{
+          this.eventSource=response
+        })
+      })
+    })
+  }
+
+  openid(id: string): void {
+    const dialogConfig = new MatDialogConfig();
   
-    //1 lancer la boite (confirm component )
-    //no93od nestana f thred mahloul o nestana f reponse
-     const dialogRef =this.Dialog.open(ConfirmComponent);
-    // attendre l resultat de l'utilisateur 
-  dialogRef.afterClosed().subscribe((response)=>
-  {
-    if (response){
-      this.es.delete(id).subscribe(()=>{
-        //hna naml action eli ena nheb nchoufha f front bad matsir 
-        // nawd nebath requette get bch yjiwni 
-        this.es.getAllevents().subscribe((response)=>{
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = { id };  // Passez l'ID ici
+  
+    const dialogRef = this.dialog.open(ModalComponent, dialogConfig);
+  
+    dialogRef.afterClosed().subscribe((data) => {
+      if (data) {
+        // Mettez à jour l'événement via le service après modification
+        this.ES.update(data, id).subscribe(() => {
+          // Récupérez à nouveau tous les événements
+          this.ES.getAllEvent().subscribe((response) => {
+            this.eventSource = response;
+          });
+        });
+      }
+    });
+  }
+  
+
+  delete(id: string): void {
+    const confirmation = confirm('Êtes-vous sûr ? Cette action supprimera définitivement cet événement !');
     
-          this.data=response
-        }) 
+    if (confirmation) {
+      this.ES.deleteEvent(id).subscribe(() => {
+        alert('L\'événement a été supprimé avec succès.');
+        // Mise à jour de la liste des événements après suppression
+        this.ES.getAllEvent().subscribe((response) => {
+          this.eventSource = response;
+        });
       });
     }
-  })
-    
-  
-  
-  
-  
-  
   }
-  open():void{
-    let dialogRef = this.Dialog.open(ModalComponent, {
-     
-    });
-
-    dialogRef.afterClosed().subscribe((data)=>{
-     
-        this.es.addEvent(data).subscribe(()=>{
-          this.es.getAllevents().subscribe((response)=>{
-            this.data=response;
-          })
-        })
-      }
-      )
-    
   
-  }
 
-  openid(id:string):void{
-    //lancer l'ouverture du modal 
-    //envoyer id vers modal 
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.data=(id);
-
-   const DialogRef= this.Dialog.open(ModalComponent,dialogConfig);
-DialogRef.afterClosed().subscribe((data)=>{
-  if(data){
-  this.es.update(data,id).subscribe(()=>{
-    this.es.getAllevents().subscribe((response)=>{
-      this.data=response;
-    })
-
-  })
-}
-})
- 
-
-  }
 }

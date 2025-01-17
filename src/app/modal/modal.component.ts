@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { evt } from 'src/model/evt';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Evt } from 'src/model/evt';
 import { EvenementService } from 'src/service/evenement.service';
 
 @Component({
@@ -10,61 +11,47 @@ import { EvenementService } from 'src/service/evenement.service';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent {
+  id!:string;
 
-id!:string ;
+  //forcage de type
+  constructor(public dialogRef: MatDialogRef<ModalComponent>, private ES:EvenementService, private router:Router, private activatedRoute:ActivatedRoute, @Inject(MAT_DIALOG_DATA) data:any) {
+    if (data){
+      this.id= data.id;
+      if (!!this.id){
+        this.ES.getEventById(this.id).subscribe((evt)=>{
+          this.initFormId(evt);
+        })
+      }
+    }
+    else{
+      this.initForm();
+    }
+  }
+  form!: FormGroup;
 
-
-
-  //forcage de type n7ebo composant yothhor dima sous forme de boite 
-  constructor(public dialogRef: MatDialogRef<ModalComponent>, @Inject(MAT_DIALOG_DATA) data:any, private es: EvenementService) {
-this.id=data;
-console.log(data);
-if(!!this.id){
-  this.es.getEventID(this.id).subscribe((evt)=>{
-    this.initform1(evt);
-  })
-}
-
-else{
-  this.initform();
-}
-
-   }
-
-  form!:FormGroup ;
- 
-  initform():void{
-    // creation d'une nouvelle instance de form et initialisation des attributs
-    // n7ebo doub man7elo formulaire ywali fer8
-    this.form= new FormGroup ({
-      title: new FormControl(null,[Validators.required]),
-      dateDebut:  new FormControl(null,[Validators.required]),
-      dateFin: new FormControl(null,[]),
-      lieu: new FormControl(null,[Validators.required])
+  initForm():void{
+    this.form=new FormGroup({
+        yourfieldname:new FormControl(),
+        titre: new FormControl(null,[Validators.required]),
+        date: new FormControl(null,[Validators.required]),
+        lieu: new FormControl(null,[]),
     })
   }
-  initform1( evt :evt):void{
-    this.form= new FormGroup({
-     
-      title: new FormControl(evt.title),
-      dateDebut:  new FormControl(evt.dateDebut),
-      dateFin: new FormControl(evt.dateFin),
-      lieu: new FormControl(evt.lieu)
 
+  initFormId(event: Evt):void{
+    this.form=new FormGroup({
+        yourfieldname:new FormControl(),
+        titre: new FormControl(event.titre,[Validators.required]),
+        date: new FormControl(event.date ,[Validators.required]),
+        lieu: new FormControl(event.lieu,[]),
     })
-
-
   }
-
 
   save() {
-    
-    this.dialogRef.close(this.form.value);
-}
+      this.dialogRef.close(this.form.value);
+  }
 
-close() {
-    this.dialogRef.close();
-}
-
-
+  close() {
+      this.dialogRef.close();
+  }
 }

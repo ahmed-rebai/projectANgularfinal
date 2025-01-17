@@ -1,117 +1,116 @@
-/* Global Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-}
-
-/* Container */
-.publication-list, .publication-form {
-    width: 80%;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  .publication-list, .publication-form {
+    max-width: 1000px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Publication List Table */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    padding: 12px 20px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-th {
-    background-color: #4c8caf;
-    color: white; /* Keep header text white */
-}
-
-td {
-    color: #888888; /* Set table content text to gray */
-}
-
-tr:hover {
-    background-color: #f5f5f5;
-}
-
-button {
-    padding: 6px 12px;
-    border: none;
-    background-color: #4b545e;
-    color: white; /* Ensure button text is white */
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #4c8caf;
-}
-
-/* Form Styles */
-.publication-form h3 {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2, h3 {
+    color: #003049;
     font-size: 24px;
     margin-bottom: 20px;
-}
-
-label {
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
     font-size: 16px;
+  }
+  
+  th {
+    background-color: #f8f9fa;
+    color: #555;
+  }
+  
+  td a {
+    color: #003049;
+    text-decoration: none;
+  }
+  
+  td a:hover {
+    text-decoration: underline;
+  }
+  
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 8px;
+  }
+  
+  button:hover {
+    color: #003049;
+  }
+  
+  .publication-form label {
     display: block;
-    margin-bottom: 8px;
-    color: #888888; /* Set label text to gray */
-}
-
-input {
+    margin: 10px 0 5px;
+    font-weight: bold;
+  }
+  
+  .publication-form input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 16px;
-}
-
-input:focus {
-    border-color: #4c8caf;
-    outline: none;
-}
-
-button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #4c8caf;
-    font-size: 18px;
+  }
+  
+  .publication-form button {
+    padding: 10px 15px;
+    background-color: #780000;
+    color: white;
+    border: none;
     border-radius: 4px;
-    color: white; /* Ensure text in submit button is white */
     cursor: pointer;
-}
-
-button[type="submit"]:hover {
-    background-color: #4c8caf;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .publication-list, .publication-form {
-        width: 90%;
-    }
-
-    th, td {
-        padding: 10px;
-    }
-
-    button {
-        padding: 4px 8px;
-    }
-
-    button[type="submit"] {
-        font-size: 16px;
-    }
-}
+    font-size: 16px;
+  }
+  
+  .publication-form button[type="button"] {
+    background-color: #dc3545;
+  }
+  
+  .publication-form button:hover {
+    background-color: #780000;
+  }
+  
+  .publication-form button[type="button"]:hover {
+    background-color: #c82333;
+  }
+  
+  .publication-list button {
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .publication-list button i {
+    color: #003049;
+  }
+  
+  .publication-list button:hover {
+    background-color: #e2e6ea;
+  }
+  
+  .publication-list button:focus {
+    outline: none;
+  }
+  

@@ -1,43 +1,31 @@
 <mat-dialog-content [formGroup]="form">
-    <input  hidden="true"  matInput class="form-control"  >
 
+  <input  hidden="true"  matInput class="form-control" formControlName="yourfieldname">
 
-
-    <p>
-   
+  <p>
       <mat-form-field appearance="fill">
-        <input matInput placeholder="title" formControlName="title">
+          <input matInput placeholder="titre" formControlName="titre">
       </mat-form-field>
-    </p>
-    <p>
-   
-        <mat-form-field>
-            <mat-label>Enter a date range</mat-label>
-            <mat-date-range-input [formGroup]="form" [rangePicker]="picker">
-              <input matStartDate formControlName="dateDebut" placeholder="Start date">
-              <input matEndDate formControlName="dateFin" placeholder="End date">
-            </mat-date-range-input>
-            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-date-range-picker #picker></mat-date-range-picker>
-          
-       
-          </mat-form-field>
-  
-    <p>
-      <mat-form-field appearance="fill">
-        <input matInput placeholder="lieu" formControlName="lieu">
-      </mat-form-field>
-    </p>
+  </p>
 
-   
-  
-    
-  
-  
+  <mat-form-field appearance="fill">
+      <mat-label>Select a date</mat-label>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+  <p>
+      <mat-form-field appearance="fill">
+          <input matInput placeholder="lieu" formControlName="lieu">
+      </mat-form-field>
+  </p>
+
+  <!-- <button type="submit" >Submit</button> -->
+  <mat-dialog-actions>
+      <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+      <button class="mat-raised-button"(click)="close()">Close</button>
+      
+  </mat-dialog-actions>
+
 </mat-dialog-content>
-
-<mat-dialog-actions>
-  <button class="mat-raised-button"(click)="close()">Close</button>
-  <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
-</mat-dialog-actions>

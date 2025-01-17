@@ -1,0 +1,42 @@
+mat-dialog-content {
+  padding: 20px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+input.mat-input-element {
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+}
+
+button.mat-raised-button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+button.mat-primary {
+  background-color: #003049;
+  color: white;
+}
+
+button.mat-raised-button:hover {
+  background-color: #0056b3;
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+mat-datepicker-toggle {
+  margin-top: -5px;
+}

@@ -1,0 +1,46 @@
+.custom-card {
+    width: 250px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .custom-card mat-card-title {
+    font-size: 1.25em;
+    font-weight: bold;
+  }
+  
+  .custom-card mat-card-subtitle {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #555;
+  }
+  
+  .rosybrown-card {
+    background-color: #669bbc;
+    color: white;
+  }
+  
+  .aqua-card {
+    background-color: #edf2f4;
+    color: black;
+  }
+  
+  .bisque-card {
+    background-color: #669bbc;
+    color: black;
+  }
+  
+  .burlywood-card {
+    background-color: #edf2f4;
+    color: black;
+  }
+  
+  .chart-wrapper {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  

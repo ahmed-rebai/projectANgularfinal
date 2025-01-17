@@ -1,3 +1,5 @@
+
+<app-header></app-header>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,190 +9,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset margins and padding */
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow-x: hidden;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    /* Styling for the carousel */
-    .carousel-item {
-      height: 100vh;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-    }
-    
-    .carousel-item img {
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .carousel-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .login-button {
-      position: fixed;
-      left: 20px;
-      top: calc(20px + 3cm); /* Move down by 3 cm */
-      z-index: 1000;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .login-button:hover {
-      background-color: #0056b3;
-    }
-
-    footer {
-      background-color: #f8f9fa;
-      padding: 20px;
-      margin-top: 60px; /* Ensure footer doesn't overlap with content */
-    }
-
-    .map-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .map-container iframe {
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      border-radius: 8px;
-    }
-
-    .carousel-caption {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    .navbar {
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 10px 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .navbar a {
-      color: #007bff;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-
-    .navbar a:hover {
-      color: #0056b3;
-    }
-
-    /* Section Styling */
-    .section {
-      padding: 100px 20px;
-      background-color: #f8f9fa; /* Light gray background */
-      position: relative;
-      overflow: hidden;
-    }
-
-    .section-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 60px;
-    }
-
-    .section-text {
-      flex: 1;
-    }
-
-    .section-text h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #333;
-      margin-bottom: 20px;
-    }
-
-    .section-text p {
-      font-size: 1.1rem;
-      color: #555;
-      line-height: 1.8;
-    }
-
-    .section-images {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .slider {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .slider img {
-      width: 100%;
-      border-radius: 15px;
-      flex-shrink: 0;
-    }
-
-    /* Alternate Layout for Even Sections */
-    .section:nth-child(even) .section-content {
-      flex-direction: row-reverse;
-    }
-
-    /* Footer Styling */
-    footer {
-      background-color: #333;
-      color: #fff;
-      padding: 40px 0;
-      text-align: center;
-    }
-
-    footer h3 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-    }
-
-    footer p {
-      font-size: 1rem;
-      color: #ccc;
-    }
-
-    footer ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    footer ul li {
-      margin-bottom: 10px;
-    }
-
-    footer ul li strong {
-      color: #fff;
-    }
+   
   </style>
 </head>
 <body>
-  <!-- Login Button -->
-  <button (click)="navigateToLogin()" class="login-button">Go to Login</button>
+ 
 
   <!-- Carousel Section -->
   <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
@@ -242,13 +65,7 @@
         <h2>Overview</h2>
         <p>Welcome to our Advanced Research Laboratory. We are dedicated to fostering innovation and learning through state-of-the-art equipment and collaborative research spaces.</p>
       </div>
-      <div class="section-images">
-        <div class="slider">
-          <img src="assets/images/image1.jpg" alt="Image 1">
-          <img src="assets/images/image2.jpg" alt="Image 2">
-          <img src="assets/images/image3.jpg" alt="Image 3">
-        </div>
-      </div>
+      
     </div>
   </div>
 

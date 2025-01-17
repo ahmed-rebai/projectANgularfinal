@@ -22,7 +22,7 @@ export class TemplateComponent implements OnInit {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         // Hide navbar when at root path '/' or specific paths
-        const hiddenNavbarPaths = ['/', '/#services', '/#overview', '/#achievements', '/#about'];
+        const hiddenNavbarPaths = ['/', '/#services', '/#overview', '/#achievements', '/#about','/membervisit'];
         this.isNavbarVisible = !hiddenNavbarPaths.includes(event.url);
       }
       

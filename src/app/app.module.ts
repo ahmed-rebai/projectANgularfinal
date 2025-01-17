@@ -38,6 +38,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormEtdComponent } from './form-etd/form-etd.component';
 import { HomeComponent } from './home/home.component';
 import { PublicationComponent } from './publication/publication.component';
+import { HeaderComponent } from './header/header.component';
+import { MembresVisitComponent } from './membres-visit/membres-visit.component';
 
 
 @NgModule({
@@ -57,7 +59,9 @@ import { PublicationComponent } from './publication/publication.component';
     ArticlesFormComponent,
     FormEtdComponent,
     HomeComponent,
-    PublicationComponent
+    PublicationComponent,
+    HeaderComponent,
+    MembresVisitComponent
 
   ],
   imports: [

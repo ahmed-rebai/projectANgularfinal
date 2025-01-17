@@ -28,7 +28,7 @@
   </div>
   
   <div class="publication-form">
-    <h3 *ngIf="!isEditMode">Create a new Publication</h3>
+    <h3 *ngIf="!isEditMode">Création d'une nouvelle publication</h3>
     <h3 *ngIf="isEditMode">Edit Publication</h3>
     <form (ngSubmit)="onCreateOrUpdate()">
       <label for="titre">Title:</label>

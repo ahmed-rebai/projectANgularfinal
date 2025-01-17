@@ -1,0 +1,66 @@
+/* Général */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Fond clair pour le contraste */
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #124559; /* Couleur personnalisée */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre élégante */
+    color: white;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Navigation */
+.nav {
+    display: flex;
+    gap: 15px;
+}
+
+/* Bouton Go to Login */
+.nav-btn,
+.login-button {
+    padding: 10px 20px;
+    background-color: white;
+    color: #124559;
+    border: 2px solid #124559;
+    border-radius: 25px; /* Boutons arrondis */
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Effet de profondeur */
+}
+
+.nav-btn:hover,
+.login-button:hover {
+    background-color: #124559; /* Inverse les couleurs au survol */
+    color: white;
+    transform: scale(1.05); /* Léger zoom au survol */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Accentue l'ombre */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav {
+        margin-top: 10px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}

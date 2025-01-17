@@ -13,8 +13,10 @@ import { CreateEtudiantComponent } from './create-etudiant/create-etudiant.compo
 import { FormEtdComponent } from './form-etd/form-etd.component';
 import { HomeComponent } from './home/home.component';
 import { PublicationComponent } from './publication/publication.component';
+import { MembresVisitComponent } from './membres-visit/membres-visit.component';
 
 const routes: Routes = [
+  { path: 'membervisit', component: MembresVisitComponent },
   { path: 'publications', component: PublicationComponent },
   { path: 'create-etudiant', component: FormEtdComponent},
   {

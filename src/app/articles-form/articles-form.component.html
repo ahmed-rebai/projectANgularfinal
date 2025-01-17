@@ -27,9 +27,13 @@
 
 
   <p>
-    <mat-form-field appearance="fill">
-      <input matInput placeholder="Sourcepdf"  formControlName="Sourcepdf">
-    </mat-form-field>
+    <!-- File Selector -->
+    <input
+      type="file"
+      (change)="onFileSelected($event)"
+      placeholder="Select source"
+    />
+    <small>{{ selectedFileName }}</small>
   </p>
 
 

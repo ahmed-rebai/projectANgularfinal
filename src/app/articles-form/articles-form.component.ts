@@ -10,6 +10,7 @@ import { ArticleService } from 'src/service/article.service';
 })
 export class ArticlesFormComponent implements OnInit {
   form!:FormGroup ;
+  selectedFileName: string = '';
   
     constructor(private ms : ArticleService , private router : Router,private activatedRoute :ActivatedRoute){}
     ngOnInit(){
@@ -76,5 +77,17 @@ export class ArticlesFormComponent implements OnInit {
   
   
   }
+    // File selection handler
+    onFileSelected(event: Event): void {
+      const input = event.target as HTMLInputElement;
+  
+      if (input.files && input.files.length > 0) {
+        const file = input.files[0];
+        this.selectedFileName = file.name; // Display the file name
+        this.form.patchValue({
+          Sourcepdf: file.name // Save the file name in the 'cv' field
+        });
+      }
+    }
 
 }

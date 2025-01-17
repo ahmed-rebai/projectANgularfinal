@@ -1,43 +1,67 @@
-<br>
 <form [formGroup]="form" (ngSubmit)="sub()">
- 
-  <input  hidden="true"  matInput class="form-control" formControlName="yourfieldname">
-
-
 
   <p>
- 
     <mat-form-field appearance="fill">
-      <input matInput placeholder="cin" formControlName="cin">
+      <input matInput placeholder="CIN" formControlName="cin">
     </mat-form-field>
   </p>
 
   <p>
     <mat-form-field appearance="fill">
-      <input matInput placeholder="name" formControlName="name">
+      <input matInput placeholder="Name" formControlName="name">
     </mat-form-field>
   </p>
 
+  <p>
+    <mat-form-field appearance="fill">
+      <input matInput placeholder="Prenom" formControlName="prenom">
+    </mat-form-field>
+  </p>
 
   <p>
-    <!-- File Selector -->
+    <mat-form-field appearance="fill">
+      <input matInput type="date" placeholder="Date" formControlName="date">
+    </mat-form-field>
+  </p>
+
+  <p>
+    <!-- Photo Selector -->
     <input
       type="file"
-      (change)="onFileSelected($event)"
+      (change)="onFileSelected($event, 'photo')"
+      placeholder="Select Photo"
+    />
+    <small>{{ selectedPhotoFileName }}</small>
+  </p>
+
+  <p>
+    <!-- CV Selector -->
+    <input
+      type="file"
+      (change)="onFileSelected($event, 'cv')"
       placeholder="Select CV"
     />
     <small>{{ selectedFileName }}</small>
   </p>
 
-
   <p>
     <mat-form-field appearance="fill">
-      <input matInput placeholder="type"  formControlName="type">
+      <input matInput placeholder="Email" formControlName="email" type="email">
     </mat-form-field>
   </p>
 
+  <p>
+    <mat-form-field appearance="fill">
+      <input matInput placeholder="Password" formControlName="password" type="password">
+    </mat-form-field>
+  </p>
 
-<button type="submit"> submit </button>
+  <p>
+    <mat-form-field appearance="fill">
+      <input matInput placeholder="Type" formControlName="type">
+    </mat-form-field>
+  </p>
 
+  <button type="submit" mat-raised-button color="primary">Submit</button>
 
-</form>  
+</form>

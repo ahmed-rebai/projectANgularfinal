@@ -11,6 +11,7 @@ import { MemberService } from 'src/service/member.service';
 export class MemberFormComponent implements OnInit {
   form!: FormGroup;
   selectedFileName: string = ''; // For displaying the selected file name
+  selectedPhotoFileName: string = ''; // For displaying the selected photo name
 
   constructor(
     private ms: MemberService,
@@ -25,7 +26,12 @@ export class MemberFormComponent implements OnInit {
         this.form = new FormGroup({
           cin: new FormControl(member.cin, [Validators.required]),
           name: new FormControl(member.name, [Validators.required]),
+          prenom: new FormControl(member.prenom, [Validators.required]),
+          date: new FormControl(member.date, [Validators.required]),
+          photo: new FormControl(member.photo),
           cv: new FormControl(member.cv, [Validators.required]),
+          email: new FormControl(member.email, [Validators.required, Validators.email]),
+          password: new FormControl(member.password, [Validators.required, Validators.minLength(6)]),
           type: new FormControl(member.type, [Validators.required])
         });
       });
@@ -38,21 +44,28 @@ export class MemberFormComponent implements OnInit {
     this.form = new FormGroup({
       cin: new FormControl(null, [Validators.required]),
       name: new FormControl(null, [Validators.required]),
+      prenom: new FormControl(null, [Validators.required]),
+      date: new FormControl(null, [Validators.required]),
+      photo: new FormControl(null),
       cv: new FormControl(null, [Validators.required]),
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
       type: new FormControl(null, [Validators.required])
     });
   }
 
-  // File selection handler
-  onFileSelected(event: Event): void {
+  onFileSelected(event: Event, field: string): void {
     const input = event.target as HTMLInputElement;
 
     if (input.files && input.files.length > 0) {
       const file = input.files[0];
-      this.selectedFileName = file.name; // Display the file name
-      this.form.patchValue({
-        cv: file.name // Save the file name in the 'cv' field
-      });
+      if (field === 'cv') {
+        this.selectedFileName = file.name;
+        this.form.patchValue({ cv: file.name });
+      } else if (field === 'photo') {
+        this.selectedPhotoFileName = file.name;
+        this.form.patchValue({ photo: file.name });
+      }
     }
   }
 

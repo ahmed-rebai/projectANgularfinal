@@ -11,6 +11,7 @@ import { ToolsFormComponent } from './tools-form/tools-form.component';
 import { ArticlesFormComponent } from './articles-form/articles-form.component';
 import { CreateEtudiantComponent } from './create-etudiant/create-etudiant.component';
 import { FormEtdComponent } from './form-etd/form-etd.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: 'create-etudiant', component: FormEtdComponent},
@@ -57,11 +58,16 @@ const routes: Routes = [
     pathMatch : 'full',
     component:ArticlesFormComponent
   },
+  {
+    path:'login',
+    pathMatch:"full",
+    component:LoginComponent
+  },
 
   {
     path:'',
     pathMatch:"full",
-    component:LoginComponent
+    component:HomeComponent
   },
 
   

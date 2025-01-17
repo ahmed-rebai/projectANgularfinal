@@ -31,6 +31,35 @@
       "cv": "Ahmed-REBAI-Resume.pdf",
       "type": "etudiant",
       "createdDate": "2024-12-25T16:17:02.975Z"
+    },
+    {
+      "id": "bf9b",
+      "cin": "test",
+      "name": "mimo",
+      "cv": "Ahmed-REBAI-Resume.pdf",
+      "type": "validé",
+      "createdDate": "2025-01-17T11:00:57.622Z"
+    },
+    {
+      "cin": "test",
+      "name": "mimo",
+      "cv": "test.txt",
+      "type": "validé",
+      "createdDate": "2025-01-17T11:06:35.589Z",
+      "id": "6794"
+    },
+    {
+      "id": "1e45",
+      "cin": "1 71 07 99 351 271",
+      "name": "Rebai",
+      "prenom": "Ahmed ",
+      "date": "2001-06-28",
+      "photo": "28_1_2_20170109141410232.jpg.chip.jpg",
+      "cv": "Ahmed-REBAI-Resume.pdf",
+      "email": "rebai.ahmed@enis.tn",
+      "password": "Ahmed2025",
+      "type": "etd",
+      "createdDate": "2025-01-17T11:43:20.649Z"
     }
   ],
   "evt": [
@@ -116,6 +145,22 @@
       "link": "liengoogle",
       "Sourcepdf": "el site",
       "createdDate": "2024-12-25T10:57:03.672Z"
+    },
+    {
+      "id": "1299",
+      "type": "spring",
+      "titre": "boot",
+      "link": "liengoogle",
+      "Sourcepdf": "test.txt",
+      "createdDate": "2025-01-17T11:09:40.969Z"
+    },
+    {
+      "id": "bf73",
+      "type": "testlyouma",
+      "titre": "mouch lyouma",
+      "link": "thislink",
+      "Sourcepdf": "Ahmed-REBAI-Resume.pdf",
+      "createdDate": "2025-01-17T11:16:10.682Z"
     }
   ]
 }

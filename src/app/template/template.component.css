@@ -1,0 +1,14 @@
+/* Styling for the carousel */
+.carousel-item {
+    height: 100vh;
+    background-color: #3f51b5; /* New background color */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  /* Optional: Adjust the color of text inside carousel overlay for contrast */
+  .carousel-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  

@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { ModalComponent } from './modal/modal.component';
 import { ToolsFormComponent } from './tools-form/tools-form.component';
 import { ArticlesFormComponent } from './articles-form/articles-form.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
 
@@ -53,11 +54,16 @@ const routes: Routes = [
     pathMatch : 'full',
     component:ArticlesFormComponent
   },
+  {
+    path:'login',
+    pathMatch:"full",
+    component:LoginComponent
+  },
 
   {
     path:'',
     pathMatch:"full",
-    component:LoginComponent
+    component:HomeComponent
   },
 
 {

@@ -33,6 +33,7 @@ import { ConfirmComponent } from './confirm/confirm.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ToolsFormComponent } from './tools-form/tools-form.component';
 import { ArticlesFormComponent } from './articles-form/articles-form.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { ArticlesFormComponent } from './articles-form/articles-form.component';
     ModalComponent,
     ConfirmComponent,
     ToolsFormComponent,
-    ArticlesFormComponent
+    ArticlesFormComponent,
+    HomeComponent
 
   ],
   imports: [

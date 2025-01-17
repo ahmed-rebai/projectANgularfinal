@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,NgZone  } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/service/AuthService';
 
@@ -8,15 +8,18 @@ import { AuthService } from 'src/service/AuthService';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
-  constructor(private as : AuthService,  private router:Router ){
-    
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private ngZone: NgZone
+  ) {}
+  tryGoogleLogin(): void {
+    this.authService.doGoogleLogin().then(() => {
+      this.successRedirect();
+    });
   }
-signin():void{
-  //injection de dependance 
-this.as.doGoogleLogin().then(()=>{
-  this.router.navigate(['/member'])
-})
- 
-}
+
+  successRedirect(): void {
+    this.ngZone.run(() => this.router.navigate(['/members']));
+  }
 }

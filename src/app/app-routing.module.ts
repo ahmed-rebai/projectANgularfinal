@@ -12,8 +12,10 @@ import { ArticlesFormComponent } from './articles-form/articles-form.component';
 import { CreateEtudiantComponent } from './create-etudiant/create-etudiant.component';
 import { FormEtdComponent } from './form-etd/form-etd.component';
 import { HomeComponent } from './home/home.component';
+import { PublicationComponent } from './publication/publication.component';
 
 const routes: Routes = [
+  { path: 'publications', component: PublicationComponent },
   { path: 'create-etudiant', component: FormEtdComponent},
   {
     path:'dashboard',

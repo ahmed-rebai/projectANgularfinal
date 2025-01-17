@@ -37,6 +37,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { FormEtdComponent } from './form-etd/form-etd.component';
 import { HomeComponent } from './home/home.component';
+import { PublicationComponent } from './publication/publication.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { HomeComponent } from './home/home.component';
     ToolsFormComponent,
     ArticlesFormComponent,
     FormEtdComponent,
-    HomeComponent
+    HomeComponent,
+    PublicationComponent
 
   ],
   imports: [

@@ -1,10 +1,9 @@
 export const firebaseConfig = {
-    apiKey: "AIzaSyA4vIFPXiJYI8OmM6LK1fIQ_u4WnJNc9hc",
-    authDomain: "amal-6986f.firebaseapp.com",
-    projectId: "amal-6986f",
-    storageBucket: "amal-6986f.appspot.com",
-    messagingSenderId: "23126310618",
-    appId: "1:23126310618:web:701ebb1a842dc9fd7defe3",
-    measurementId: "G-WQVS87GM0S"
-  };
-  
+  apiKey: "AIzaSyC6sP5vjz7VE5Y50pNzUOpi-CTxhI37uYo",
+  authDomain: "authentification2-30e96.firebaseapp.com",
+  projectId: "authentification2-30e96",
+  storageBucket: "authentification2-30e96.appspot.com",
+  messagingSenderId: "162442595234",
+  appId: "1:162442595234:web:10c9759047b467553100fb",
+  measurementId: "G-X5V6BY7DWL"
+};

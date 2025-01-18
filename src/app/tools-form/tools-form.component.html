@@ -1,15 +1,29 @@
-<form [formGroup]="form" (ngSubmit)="sub()">
+<div class="form-container">
+  <h2 *ngIf="isEditMode">Modifier un outil</h2>
+  <h2 *ngIf="!isEditMode">Ajouter un nouvel outil</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
     <mat-form-field appearance="fill">
-      <mat-label></mat-label>
-      <input matInput placeholder="" formControlName="fielden">
-    </mat-form-field> 
-    
-      <mat-form-field appearance="fill">
-        <mat-label>link</mat-label>
-        <input matInput placeholder="project link" formControlName="link">
-      </mat-form-field>
-    
-      <button type="submit" mat-raised-button color="primary">Submit</button>
-    </form>
-    
-  
+      <mat-label>Source</mat-label>
+      <input matInput formControlName="source" placeholder="Source de l'outil" />
+      <mat-error *ngIf="form.get('source')?.hasError('required')">
+        La source est obligatoire
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Date</mat-label>
+      <input matInput formControlName="date" [matDatepicker]="picker" placeholder="Date" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="form.get('date')?.hasError('required')">
+        La date est obligatoire
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+      {{ isEditMode ? 'Mettre à jour' : 'Ajouter' }}
+    </button>
+    <button mat-button color="warn" routerLink="/tools">Annuler</button>
+  </form>
+</div>

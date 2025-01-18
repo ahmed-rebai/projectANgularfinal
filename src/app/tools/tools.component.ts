@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { tools } from 'src/model/tools';
 import { ToolService } from 'src/service/tool.service';
 import { ConfirmComponent } from '../confirm/confirm.component';
+import { Outil } from 'src/model/outil';
 
 @Component({
   selector: 'app-tools',
@@ -11,33 +12,34 @@ import { ConfirmComponent } from '../confirm/confirm.component';
 })
 
 export class ToolsComponent implements OnInit {
-  displayedColumns: string[] = ['id','link','createdDate','icon','edit'];
-  constructor(private ms : ToolService,private dialog:MatDialog){}
-  dataSource : tools[]=[];
+  displayedColumns: string[] = ['id', 'source', 'date', 'action'];
+  outils: Outil[] = [];
+
+  constructor(private outilService: ToolService) {}
+
   ngOnInit(): void {
-      //appleler la fonction de service getAllmembers 
-      //attendre le rsumtat
-      // une fois on recoit les => affecter sa,s le dayasource
-      //PERMET DUTILISER LE SERVICE DANS LES COMPSOANT OU LES AUTRS SERVICES EN CREANT UNE INSTANCE PRIV2 DANS LE CONSTRUCTUER DU SERVICE A INJECTER 
-      //this.ms.getAlltools.subscribe((a)=>{this.dataSource=a;})
-      this.ms.getAlltools().subscribe((a)=>{this.dataSource=a;})
-  }
-  delete(id:string):void{/// lancer la boite de confirmation  attendre la resu de user et si click sur confirm
-    const dialogRef = this.dialog.open(ConfirmComponent);
-    dialogRef.afterClosed().subscribe((response)=>{
-      if (response){
-        this.ms.Deletetools(id).subscribe(()=>{
-          this.ms.getAlltools().subscribe((a)=>{this.dataSource=a;})
-        })
-      }
-      
-    })
-
-    
-    
-
+    this.loadTools();
   }
 
+  loadTools(): void {
+    this.outilService.getOutils().subscribe((data) => {
+      this.outils = data;
+      console.log(this.outils)
+    });
+  }
 
-
+  delete(id: number): void {
+    if (confirm('Voulez-vous vraiment supprimer cet outil ?')) {
+      this.outilService.deleteOutil(id).subscribe(
+        () => {
+          // Filtrer les outils pour retirer l'outil supprimé
+          this.outils = this.outils.filter(tool => tool.id !== id);
+          console.log('Outil supprimé avec succès.');
+        },
+        (error) => {
+          console.error('Erreur lors de la suppression de l\'outil:', error);
+        }
+      );
+    }
+  }
 }

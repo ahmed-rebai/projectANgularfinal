@@ -9,10 +9,9 @@
     <header class="header">
         <div class="logo">Advanced Research Laboratory</div>
         <nav class="nav">
-            <button class="nav-btn">Événements</button>
-           
+            <button class="nav-btn" [routerLink]="'/eventvisit'">Evenements</button>
             <button class="nav-btn" [routerLink]="'/membervisit'">Membres</button>
-            <button class="btn btn-outline-light" (click)="navigateToLogin()"> Login</button>
+            <button class="btn btn-outline-light" (click)="navigateToLogin()">Login</button>
         </nav>
     </header>
 </body>

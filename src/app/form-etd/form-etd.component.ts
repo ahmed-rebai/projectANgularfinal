@@ -49,12 +49,23 @@ export class FormEtdComponent implements OnInit {
       dateNaissance: ['', Validators.required],
       cv: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
       dateInscription: [this.today, Validators.required],
       sujet: ['', Validators.required],
       diplome: ['', Validators.required],
       encadrant: ['', Validators.required]
     });
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      this.selectedFileName = file.name; // Afficher le nom du fichier
+      this.formEtd.patchValue({
+        cv: file.name // Enregistrer le nom du fichier dans le champ 'cv'
+      });
+    }
   }
 
   onSubmit(): void {

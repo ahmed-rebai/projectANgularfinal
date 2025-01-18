@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="center center" class="form-container">
   <mat-card>
-    <mat-card-title>Créer Étudiant</mat-card-title>
+    <mat-card-title>Créer Etudiant</mat-card-title>
     <mat-card-content>
       <form [formGroup]="formEtd" (ngSubmit)="onSubmit()" fxLayout="row wrap" fxLayoutGap="16px">
          <!-- Champ CIN, devient inchangeable en mode édition -->
@@ -26,20 +26,23 @@
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
-        <mat-form-field appearance="outline" class="field">
-          <mat-label>CV</mat-label>
-          <input matInput formControlName="cv" required>
-        </mat-form-field>
+        <div class="field">
+         
+          <label for="file-upload"></label>
+          <input
+            type="file"
+            id="file-upload"
+            (change)="onFileSelected($event)"
+            placeholder="Select CV"
+          />
+          <small>{{ selectedFileName }}</small>
+        </div>
 
         <mat-form-field appearance="outline" class="field">
           <mat-label>Email</mat-label>
           <input matInput formControlName="email" required>
         </mat-form-field>
 
-        <mat-form-field appearance="outline" class="field">
-          <mat-label>Mot de Passe</mat-label>
-          <input matInput formControlName="password" type="password" required>
-        </mat-form-field>
 
         <mat-form-field appearance="outline" class="field">
           <mat-label>Date d'Inscription</mat-label>

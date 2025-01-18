@@ -8,7 +8,7 @@ import { MemberService } from 'src/service/member.service';
   styleUrls: ['./membres-visit.component.css']
 })
 export class MembresVisitComponent implements OnInit {
-  displayedColumns: string[] = [ 'nom','prenom', 'email','type','publication','outils','evenement','grade','etablissement']; // Colonnes à afficher
+  displayedColumns: string[] = [ 'nom','prenom', 'email','type','grade','etablissement']; // Colonnes à afficher
   dataSource = new MatTableDataSource<any>(); // Source de données pour la table
 
   constructor(private membersService: MemberService) {}

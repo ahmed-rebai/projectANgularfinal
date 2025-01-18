@@ -14,8 +14,18 @@ import { FormEtdComponent } from './form-etd/form-etd.component';
 import { HomeComponent } from './home/home.component';
 import { PublicationComponent } from './publication/publication.component';
 import { MembresVisitComponent } from './membres-visit/membres-visit.component';
+import { EventVisitComponent } from './event-visit/event-visit.component';
 
 const routes: Routes = [
+  { 
+    path: 'tools/new', 
+    component: ToolsFormComponent
+  },
+  { 
+    path: 'tools/edit/:id',
+    component: ToolsFormComponent 
+  },
+  { path: 'eventvisit', component: EventVisitComponent},
   { path: 'membervisit', component: MembresVisitComponent },
   { path: 'publications', component: PublicationComponent },
   { path: 'create-etudiant', component: FormEtdComponent},

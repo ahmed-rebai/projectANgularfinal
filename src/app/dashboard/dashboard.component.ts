@@ -59,8 +59,8 @@ constructor(private ms:MemberService,private es: EvenementService, private pub:P
 
     this.chartData= [
       {
-        // ⤵️ Add these
-        label: '$ in millions',
+       
+        label: 'nbEtd&nbStd',
         data: [ this.nb_teacher,this.nb_students]
       }
     ];
@@ -73,7 +73,7 @@ constructor(private ms:MemberService,private es: EvenementService, private pub:P
 }
 
 
-chartLabels: string[] = ['nbTeachers','nbstudents'];
+chartLabels: string[] = ['nbEnseignants','nbEtudiants'];
     chartOptions: ChartOptions = {};
 
 }

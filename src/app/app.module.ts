@@ -40,6 +40,7 @@ import { HomeComponent } from './home/home.component';
 import { PublicationComponent } from './publication/publication.component';
 import { HeaderComponent } from './header/header.component';
 import { MembresVisitComponent } from './membres-visit/membres-visit.component';
+import { EventVisitComponent } from './event-visit/event-visit.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { MembresVisitComponent } from './membres-visit/membres-visit.component';
     HomeComponent,
     PublicationComponent,
     HeaderComponent,
-    MembresVisitComponent
+    MembresVisitComponent,
+    EventVisitComponent
 
   ],
   imports: [

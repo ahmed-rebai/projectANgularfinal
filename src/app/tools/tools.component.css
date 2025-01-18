@@ -1,0 +1,67 @@
+/* Styliser le bouton de création */
+.buttonCreate {
+    background-color: #0056b3; /* Couleur bleue primaire */
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .buttonCreate:hover {
+    background-color: #0056b3; /* Couleur bleue foncée */
+  }
+  
+  /* Styliser le tableau */
+  table.mat-elevation-z8 {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  th.mat-header-cell {
+    background-color: #f5f5f5;
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  td.mat-cell {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  tr.mat-header-row {
+    height: 56px;
+  }
+  
+  tr.mat-row {
+    height: 48px;
+    transition: background-color 0.3s ease;
+  }
+  
+  tr.mat-row:hover {
+    background-color: #f9f9f9;
+  }
+  
+  /* Boutons d'action */
+  button[mat-button] {
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+  }
+  
+  mat-icon {
+    margin-right: 4px;
+  }
+  
+  button[mat-button]:hover {
+    opacity: 0.9;
+  }
+  

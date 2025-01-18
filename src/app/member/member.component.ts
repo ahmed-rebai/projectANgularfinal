@@ -20,8 +20,8 @@ export class MemberComponent implements OnInit {
 
   constructor(private ms: MemberService, private dialog: MatDialog, private router: Router) {}
 
-  displayedColumns: string[] = ['cin', 'nom', 'prenom', 'dateNaissance', 'cv', 'email','Encadrant', 'diplome','image', 'delete', 'edit'];
-  displayedColumnsEnseignants: string[] = ['cin', 'nom', 'prenom', 'dateNaissance', 'cv', 'email', 'grade', 'etablissement','image', 'delete', 'edit'];
+  displayedColumns: string[] = ['cin', 'nom', 'prenom', 'dateNaissance', 'cv', 'email','Encadrant', 'diplome','delete', 'edit'];
+  displayedColumnsEnseignants: string[] = ['cin', 'nom', 'prenom', 'dateNaissance', 'cv', 'email', 'grade', 'etablissement', 'delete', 'edit'];
   ngOnInit(): void {
     
     this.getEtudiants();

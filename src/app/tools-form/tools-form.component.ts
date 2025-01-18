@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Outil } from 'src/model/outil';
 import { tools } from 'src/model/tools';
 import { ToolService } from 'src/service/tool.service';
 
@@ -11,59 +12,66 @@ import { ToolService } from 'src/service/tool.service';
 })
 export class ToolsFormComponent implements OnInit {
   form!: FormGroup;
-  constructor(private Ms:ToolService,private router:Router,private activatedRoute:ActivatedRoute){}
+  isEditMode: boolean = false;
+  outilId: number | null = null;
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private outilService: ToolService
+  ) {}
   ngOnInit(): void {
-    ///1 recuperer l id de la route active 
-    
-    const idCourant = this.activatedRoute.snapshot.params['id'];
-    console.log(idCourant);
-    if(!!idCourant){
-      ///2 if id existe et a une valeur => je suis dans edit 
-      this.Ms.gettools(idCourant).subscribe((response)=>{
-        this.form = new FormGroup({
-          id: new FormControl(null, [Validators.required]),
-          link: new FormControl(response.link, [Validators.required])
-        });
-    
-      })
-    }
-    else{
-      ////3 
-    this.initForm();
-
-    }
-
-
-    
-    
-  }
-  initForm():void {
-    this.form = new FormGroup({
-      link: new FormControl(null, [Validators.required])
+    this.form = this.fb.group({
+      source: ['', Validators.required],
+      date: ['', Validators.required],
     });
-
+    this.route.paramMap.subscribe((params) => {
+      const id = params.get('id');
+      if (id) {
+        this.isEditMode = true;
+        this.outilId = +id;
+        this.loadOutil(+id);
+      }
+    });
   }
-  sub(): void {
-    const idCourant = this.activatedRoute.snapshot.params['id'];
-    if(!!idCourant){
-      console.log(this.form.value);
-    const m:tools={...this.form.value, createdDate: new Date()};
-    this.Ms.edittools(m,idCourant).subscribe(()=>{
-      this.router.navigate(['/tools']);})
-
-
-    }
-    else{
-      console.log(this.form.value);
-    const m:tools={...this.form.value, createdDate: new Date()};
-    this.Ms.Createtools(m).subscribe(()=>{
-      this.router.navigate(['/tools']);
-    })
-
-    }
-
-    
-  
+  loadOutil(id: number): void {
+    this.outilService.getOutilById(id).subscribe(
+      (outil) => {
+        this.form.patchValue({
+          source: outil.source,
+          date: outil.date,
+        });
+      },
+      (error) => {
+        console.error('Erreur lors du chargement de l\'outil', error);
+      }
+    );
   }
-
-}
+  submit(): void {
+    if (this.form.invalid) {
+      return;
+    }
+    const formData: Outil = this.form.value;
+    console.log(formData)
+    if (this.isEditMode && this.outilId !== null) {
+      this.outilService.updateOutil(this.outilId, formData).subscribe(
+        () => {
+          console.log('Outil mis à jour avec succès');
+          this.router.navigate(['/tools']);
+        },
+        (error) => {
+          console.error('Erreur lors de la mise à jour de l\'outil', error);
+        }
+      );
+    } else {
+      this.outilService.addOutil(formData).subscribe(
+        () => {
+          console.log('Nouvel outil ajouté avec succès');
+          this.router.navigate(['/tools']);
+        },
+        (error) => {
+          console.error('Erreur lors de l\'ajout d\'un nouvel outil', error);
+        }
+      );
+    }
+  }}

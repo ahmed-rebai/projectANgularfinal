@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { tools } from 'src/model/tools';
 import { ToolService } from 'src/service/tool.service';
-import { ConfirmComponent } from '../confirm/confirm.component';
 import { Outil } from 'src/model/outil';
 
 @Component({

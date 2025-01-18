@@ -26,7 +26,7 @@ export class DashboardComponent {
     }
     
   ];
-constructor(private ms:MemberService,private es: EvenementService, private pub:PublicationService, private tool:ToolService){
+constructor(private ms:MemberService,private es: EvenementService, private pub:PublicationService, private tool:ToolService, private outil:ToolService){
   this.ms.getAllMembers().subscribe((data)=>{
     console.log(data)
     this.NB_members=data.length;
@@ -51,6 +51,12 @@ constructor(private ms:MemberService,private es: EvenementService, private pub:P
     this.pub.getPublications().subscribe((data)=>{
       console.log(data)
       this.NB_publications= data.length;
+      
+    })
+
+    this.outil.getOutils().subscribe((data)=>{
+      console.log(data)
+      this.NB_tools= data.length;
       
     })
 
